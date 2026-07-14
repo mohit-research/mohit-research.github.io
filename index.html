@@ -1,364 +1,495 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name=viewport content="width=800">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-  <style type="text/css">
-    /* Color scheme stolen from Sergey Karayev */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Agrawal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ── */
+    body {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      background: #fff;
+    }
 
     a {
       color: #1772d0;
       text-decoration: none;
     }
 
-    a:focus,
-    a:hover {
+    a:hover, a:focus {
       color: #f09228;
-      text-decoration: none;
+      text-decoration: underline;
     }
 
-    body,
-    td,
-    th,
-    tr,
-    p,
-    a {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 14px
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
     }
 
-    strong {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    /* ── Header ── */
+    .header {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+
+    .header-bio { flex: 1; }
+
+    .header-photo {
+      flex-shrink: 0;
+    }
+
+    .header-photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 20px;
+    }
+
+    /* ── Bio ── */
+    .bio p {
+      text-align: justify;
+      margin-bottom: 12px;
+      color: #444;
+    }
+
+    .bio p + p {
+      text-indent: 1.5em;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    /* ── Social Links ── */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 0;
+      margin-top: 20px;
       font-size: 14px;
     }
 
-    heading {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 22px;
+    .social-links a {
+      color: #1772d0;
+      font-weight: 600;
     }
 
-    papertitle {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 17px;
+    .social-links span {
+      color: #999;
+      margin: 0 8px;
     }
 
-    name {
-      font-family: 'Lato', Verdana, Helvetica, sans-serif;
-      font-size: 32px;
+    /* ── Section ── */
+    .section {
+      margin-bottom: 48px;
     }
 
-    .one {
-      width: 160px;
-      height: 160px;
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+      border-bottom: 2px solid #1772d0;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* ── News ── */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #444;
+      display: flex;
+      gap: 12px;
+    }
+
+    .news-list li:last-child { border-bottom: none; }
+
+    .news-date {
+      color: #1772d0;
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 60px;
+    }
+
+    /* ── Publications ── */
+    .pub-item {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-img {
+      flex-shrink: 0;
+      width: 140px;
+    }
+
+    .pub-img img {
+      width: 140px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e8e8e8;
+      display: block;
+    }
+
+    .pub-content { flex: 1; }
+
+    .pub-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .pub-authors {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .pub-venue {
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .pub-links a {
+      background: #f0f5ff;
+      color: #1772d0;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid #d0e0f8;
+      transition: background 0.2s;
+    }
+
+    .pub-links a:hover {
+      background: #1772d0;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .pub-note {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    /* ── Awards ── */
+    .award-list {
+      list-style: none;
+    }
+
+    .award-list li {
+      padding: 8px 0 8px 16px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #444;
       position: relative;
     }
 
-    .two {
-      width: 160px;
-      height: 160px;
+    .award-list li:last-child { border-bottom: none; }
+
+    .award-list li::before {
+      content: "▸";
+      color: #1772d0;
       position: absolute;
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
+      left: 0;
+      font-size: 11px;
+      top: 10px;
     }
 
-    .fade {
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
+    /* ── Talks ── */
+    .talk-list {
+      list-style: none;
     }
 
-    span.highlight {
-      background-color: #ffffd0;
+    .talk-list li {
+      padding: 8px 0 8px 16px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #444;
+      position: relative;
     }
+
+    .talk-list li:last-child { border-bottom: none; }
+
+    .talk-list li::before {
+      content: "▸";
+      color: #1772d0;
+      position: absolute;
+      left: 0;
+      font-size: 11px;
+      top: 10px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 620px) {
+      .header { flex-direction: column-reverse; align-items: center; }
+      .header-photo img { width: 160px; height: 160px; }
+      .pub-item { flex-direction: column; }
+      .pub-img { width: 100%; }
+      .pub-img img { width: 100%; height: auto; }
+    }
+
   </style>
-  <link rel="icon" type="image/png" href="files/">
-  <title>Mohit Agrawal</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tr>
-      <td>
+  <div class="container">
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="67%" valign="middle">
-              <p align="center">
-                <name>Mohit Agrawal &nbsp </name>
-              </p>
-              <p align="justify">
+    <!-- ── Header ── -->
+    <div class="header">
+      <div class="header-bio">
+        <div class="name">Mohit Agrawal</div>
 
-<p>                                                                                                                                                                                                                                                                                                                         
-    A hearty welcome! I am Mohit Agrawal — a Senior Lead Engineer at                                                                                                                                                                                                                                                          
-    <a href="https://www.qualcomm.com/home" target="_blank" rel="noopener noreferrer">Qualcomm AI Software</a>,                                                                                                                                                                                                               
-    where I work on AI systems at scale, and am concurrently pursuing a PhD at IIT Kharagpur under the                                                                                                                                                                                                                        
-    supervision of                                                                                                                                                                                                                                                                                                            
-    <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.                                                                                                                                                                                                                
-    My industry and research work are deeply intertwined — one shapes the other.                                                                                                                                                                                                                                              
-  </p>                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                              
-  <p>                                                                                                                                                                                                                                                                                                                         
-    My research sits at the intersection of Multimodal AI and Education — building intelligent systems that
-    can listen, speak, and meaningfully evaluate human learning. I work on Automatic Speech Recognition (ASR),                                                                                                                                                                                                                
-    Text-to-Speech (TTS), and the evaluation of multimodal AI systems. A core belief driving my work is that                                                                                                                                                                                                                  
-    powerful AI should not be locked behind expensive cloud infrastructure, which is why I am actively exploring                                                                                                                                                                                                              
-    Small Language Models (SLMs) and on-device AI to bring these capabilities directly to edge devices, making                                                                                                                                                                                                                
-    quality education accessible to everyone, everywhere — even without an internet connection.                                                                                                                                                                                                                               
-  </p>                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                              
-  <p>                                                                                                                                                                                                                                                                                                                         
-    Before my current role, I built my engineering foundations across some exciting places —
-    <a href="https://www.teradata.com/" target="_blank" rel="noopener noreferrer">Teradata R&D Labs</a>                                                                                                                                                                                                                       
-    (distributed machine learning),                                                                                                                                                                                                                                                                                           
-    <a href="https://www.ibm.com/careers/blog/what-is-the-india-systems-development-lab" target="_blank" rel="noopener noreferrer">IBM ISDL</a>,                                                                                                                                                                              
-    <a href="https://www.blaize.com/" target="_blank" rel="noopener noreferrer">Blaize</a>, and                                                                                                                                                                                                                               
-    <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">IIIT Delhi</a>, where I                                                                                                                                                                                                                      
-    worked as a Research Assistant under                                                                                                                                                                                                                                                                                      
-    <a href="https://midas.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">Prof. Rajiv Ratn Shah</a>.                                                                                                                                                                                                                 
-    These experiences shaped how I think about building AI that works not just in research papers, but in                                                                                                                                                                                                                     
-    real-world, resource-constrained systems.                                                                                                                                                                                                                                                                                 
-  </p>                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                              
-  <p>                                                                                                                                                                                                                                                                                                                         
-    I hold a Master's in Computer Science and Engineering from                                                                                                                                                                                                                                                                
-    <a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">National Institute of Technology Tiruchirappalli</a>                                                                                                                                                                                            
-    (2016), advised by                                                                                                                                                                                                                                                                                                        
-    <a href="https://www.nitt.edu/home/academics/departments/cse/faculty/leela/" target="_blank" rel="noopener noreferrer">Dr. R. Leela Velusamy</a>                                                                                                                                                                          
-    for my thesis titled <em>"Spam Detection in Social Networking Sites Using Unsupervised Learning and                                                                                                                                                                                                                       
-    Dimensionality Reduction."</em> I completed my Bachelor's in CSE from                                                                                                                                                                                                                                                     
-    <a href="https://gcekbpatna.ac.in/" target="_blank" rel="noopener noreferrer">Government College of Engineering, Bhawanipatna</a>                                                                                                                                                                                         
-    (2013).                                                                                                                                                                                                                                                                                                                   
-  </p>                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                              
-  <p>                                                                                                                                                                                                                                                                                                                         
-    Outside of research, I enjoy teaching, writing, and travelling — three things that keep reminding me
-    why building AI for education matters.                                                                                                                                                                                                                                                                                    
-  </p>                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                              
-  <p>                                                                                                                                                                                                                                                                                                                         
-    If you are working on multimodal AI, educational technology, edge AI, or have an interesting use case
-    to explore, I would love to connect!                                                                                                                                                                                                                                                                                      
-  </p>  
-              <!-- <p> -->
-              <!-- Shot me a <a href="mailto:mohit.nittrichy@gmail.com">message</a> for a chat! -->
-              <!-- </p> -->
-              <p align=center>
-                <a href="mailto:mohit.nittrichy@gmail.com">Email</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?hl=en&user=C_EfkckAAAAJ">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://github.com/mohit-research"> Github </a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/ma11/"> LinkedIn </a>
-              </p>
-            </td>
-            <td width="33%">
-              <img src="pic.jpeg" height="224" width="224">
-            </td>
-          </tr>
-        </table>
+        <div class="bio">
+          <p>
+            A hearty welcome! I am Mohit Agrawal — a Senior Lead Engineer at
+            <a href="https://www.qualcomm.com/home" target="_blank" rel="noopener noreferrer">Qualcomm AI Software</a>,
+            where I work on AI systems at scale, and am concurrently pursuing a PhD at IIT Kharagpur under the
+            supervision of
+            <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.
+            My industry and research work are deeply intertwined — one shapes the other.
+          </p>
+          <p>
+            My research sits at the intersection of Multimodal AI and Education — building intelligent systems
+            that can listen, speak, and meaningfully evaluate human learning. I work on Automatic Speech
+            Recognition (ASR), Text-to-Speech (TTS), and the evaluation of multimodal AI systems. A core belief
+            driving my work is that powerful AI should not be locked behind expensive cloud infrastructure,
+            which is why I am actively exploring Small Language Models (SLMs) and on-device AI to bring these
+            capabilities directly to edge devices, making quality education accessible to everyone, everywhere
+            — even without an internet connection.
+          </p>
+          <p>
+            Before my current role, I built my engineering foundations across some exciting places —
+            <a href="https://www.teradata.com/" target="_blank" rel="noopener noreferrer">Teradata R&amp;D Labs</a>
+            (distributed machine learning),
+            <a href="https://www.ibm.com/careers/blog/what-is-the-india-systems-development-lab" target="_blank" rel="noopener noreferrer">IBM ISDL</a>,
+            <a href="https://www.blaize.com/" target="_blank" rel="noopener noreferrer">Blaize</a>, and
+            <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">IIIT Delhi</a>, where I
+            worked as a Research Assistant under
+            <a href="https://midas.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">Prof. Rajiv Ratn Shah</a>.
+            These experiences shaped how I think about building AI that works not just in research papers, but in
+            real-world, resource-constrained systems.
+          </p>
+          <p>
+            I hold a Master's in Computer Science and Engineering from
+            <a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">National Institute of Technology Tiruchirappalli</a>
+            (2016), advised by
+            <a href="https://www.nitt.edu/home/academics/departments/cse/faculty/leela/" target="_blank" rel="noopener noreferrer">Dr. R. Leela Velusamy</a>
+            for my thesis titled <em>"Spam Detection in Social Networking Sites Using Unsupervised Learning
+            and Dimensionality Reduction."</em> I completed my Bachelor's in CSE from
+            <a href="https://gcekbpatna.ac.in/" target="_blank" rel="noopener noreferrer">Government College of Engineering, Bhawanipatna</a>
+            (2013).
+          </p>
+          <p>
+            Outside of research, I enjoy teaching, writing, and travelling — three things that keep reminding
+            me why building AI for education matters. If you are working on multimodal AI, educational
+            technology, or edge AI, I would love to connect!
+          </p>
+        </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>News</heading>
-		 <ul>
-                <li>12/2025: &nbsp "US Patent got accepted for filing" in the area of Autonomous Driving.</li>
-              </ul>
-	      <ul>
-                <li>12/2024: &nbsp "Machine Unlearning for Qualcomm AI Hub" white paper got award in MMWPC2024.</li>
-              </ul>
-	      <ul>
-                <li>11/2023: &nbsp "GenAI based Chatbot" paper got accepted at QBuzz, an annual conference organized by Qualcomm India.</li>
-              </ul>
-	      <ul>
-                <li>10/2023: &nbsp "Represented Qualcomm and Judged Megathon 2023", organized by IIIT Hyderabad.</li>
-              </ul>				  
-            </td>
-          </tr>
-        </table>
+        <div class="social-links">
+          <a href="mailto:mohit.nittrichy@gmail.com">Email</a>
+          <span>/</span>
+          <a href="https://scholar.google.com/citations?hl=en&user=C_EfkckAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <span>/</span>
+          <a href="https://github.com/mohit-research" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span>/</span>
+          <a href="https://www.linkedin.com/in/ma11/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="25%" valign="middle">
-              <heading>Publications</heading>
-            </td>
-          </tr>
+      <div class="header-photo">
+        <img src="pic.jpeg" alt="Mohit Agrawal">
+      </div>
+    </div>
 
-          <tr>
-            <td width="25%"><img src="paper1.png" alt="b3do" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="top">
-              <p>
-                <papertitle>GANTouch: An Attack-Resilient Framework for Touch-based Continuous Authentication System <b>(Impact Factor: 5)</b></papertitle>
-                <br>
-                <strong>Mohit Agrawal</strong>, &nbsp Pragyan Mehrotra, &nbsp Rajesh Kumar, &nbsp Rajiv Ratn Shah
-                <br>
-                <em>IEEE Transactions on Biometrics, Identity and Behavior (<strong>T-BIOM</strong>)</em>, 2022
-                <br>
-				<br>
-                <a href="https://ieeexplore.ieee.org/document/9893211">Paper</a> /
-		      <a href="https://github.com/midas-research/GANTouch-TBIOM">Code</a>
-              </p>
-            </td>
-          </tr>	
+    <!-- ── News ── -->
+    <div class="section">
+      <div class="section-title">News</div>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">Dec 2025</span>
+          <span>US Patent accepted for filing in the area of Autonomous Driving.</span>
+        </li>
+        <li>
+          <span class="news-date">Dec 2024</span>
+          <span>"Machine Unlearning for Qualcomm AI Hub" white paper received award at MMWPC 2024.</span>
+        </li>
+        <li>
+          <span class="news-date">Nov 2023</span>
+          <span>"GenAI based Chatbot" paper accepted at QBuzz, an annual conference organized by Qualcomm India.</span>
+        </li>
+        <li>
+          <span class="news-date">Oct 2023</span>
+          <span>Represented Qualcomm and judged Megathon 2023, organized by IIIT Hyderabad.</span>
+        </li>
+      </ul>
+    </div>
 
-          <tr>
-            <td width="25%"><img src="paper2.png" alt="b3do" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="top">
-              <p>
-                <papertitle> Defending Touch-based Continuous Authentication Systems from Active Adversaries Using Generative Adversarial Networks</papertitle>
-                <br>
-                <strong>Mohit Agrawal<sup>*</sup></strong>, &nbsp Pragyan Mehrotra<strong><sup>*</sup></strong>, &nbsp Rajesh Kumar, &nbsp Rajiv Ratn Shah
-                <br>
-		<strong>*</strong> represents equal contribution.
-		<br>
-                <em>IEEE International Joint Conference on Biometrics (<strong>IJCB</strong>)</em>, 2021
-                <br>
-				<br>
-                <a href="https://arxiv.org/abs/2106.07867">Paper</a> /
-		      <a href="https://github.com/midas-research/IJCB2021GANTouch">Code</a>
-              </p>
-            </td>
-          </tr>	
-		  
-		  <tr>
-            <td width="25%"><img src="paper3.png" alt="b3do" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="top">
-              <p>
-                <papertitle>On the Inference of Soft Biometrics from Typing Patterns Collected in a Multi-device Environment </papertitle>
-                <br>
-                Vishaal Udandarao<strong><sup>*</sup></strong>, &nbsp <strong>Mohit Agrawal<sup>*</sup></strong>, &nbsp Rajesh Kumar, &nbsp Rajiv Ratn Shah
-                <br>
-		<strong>*</strong> represents equal contribution.
-		<br>
-                <em>IEEE International Conference on Multimedia Big Data (<strong>BigMM</strong>)</em>, 2020
-                <br>
-				<br>
-                <a href="https://arxiv.org/abs/2006.09501">Paper</a> /
-		      <a href="https://github.com/midas-research/privacy-leaks">Code</a>
-              </p>
-            </td>
-          </tr>	
-		  
-		  <tr>
-            <td width="25%"><img src="paper4.png" alt="b3do" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="top">
-              <p>
-                <papertitle> PRISMO: Priority Based Spam Detection Using Multi Optimization </papertitle>
-                <br>
-                <strong>Mohit Agrawal</strong>, &nbsp R. Leela Velusamy
-                <br>
-                <em> Springer International Conference on Big Data Analytics (<strong>BDA</strong>)</em>, 2018
-                <br>
-				<br>
-                <a href="https://link.springer.com/chapter/10.1007/978-3-030-04780-1_27">Paper</a> 
-              </p>
-            </td>
-          </tr>
+    <!-- ── Publications ── -->
+    <div class="section">
+      <div class="section-title">Publications</div>
 
-          <tr>
-            <td width="25%"><img src="paper5.png" alt="b3do" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="top">
-              <p>
-                <papertitle>R-SALSA: A spam filtering technique for social networking sites</papertitle>
-                <br>
-                <strong>Mohit Agrawal</strong>, &nbsp R. Leela Velusamy
-                <br>
-                <em>IEEE Students' Conference on Electrical, Electronics and Computer Science (<strong>SCEECS</strong>)</em>, 2016
-                <br>
-				<br>
-                <a href="https://ieeexplore.ieee.org/document/7509326">Paper</a>
-              </p>
-            </td>
-          </tr>
+      <div class="pub-item">
+        <div class="pub-img"><img src="paper1.png" alt="GANTouch"></div>
+        <div class="pub-content">
+          <div class="pub-title">GANTouch: An Attack-Resilient Framework for Touch-based Continuous Authentication System <span style="color:#888; font-size:13px; font-weight:400;">(Impact Factor: 5)</span></div>
+          <div class="pub-authors"><strong>Mohit Agrawal</strong>, Pragyan Mehrotra, Rajesh Kumar, Rajiv Ratn Shah</div>
+          <div class="pub-venue">IEEE Transactions on Biometrics, Identity and Behavior (T-BIOM), 2022</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/9893211" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a href="https://github.com/midas-research/GANTouch-TBIOM" target="_blank" rel="noopener noreferrer">Code</a>
+          </div>
+        </div>
+      </div>
 
-          <tr>
-            <td width="25%"><img src="paper6.jpg" alt="b3do" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="top">
-              <p>
-                <papertitle>Unsupervised Spam Detection in Hyves Using SALSA</papertitle>
-                <br>
-                <strong>Mohit Agrawal</strong>, &nbsp R. Leela Velusamy
-                <br>
-                <em>Springer International Conference on Frontiers in Intelligent Computing: Theory and Applications (<strong>FICTA</strong>)</em>, 2015
-                <br>
-				<br>
-                <a href="https://link.springer.com/chapter/10.1007/978-81-322-2695-6_43">Paper</a>
-              </p>
-            </td>
-          </tr>
-  
+      <div class="pub-item">
+        <div class="pub-img"><img src="paper2.png" alt="IJCB 2021"></div>
+        <div class="pub-content">
+          <div class="pub-title">Defending Touch-based Continuous Authentication Systems from Active Adversaries Using Generative Adversarial Networks</div>
+          <div class="pub-authors"><strong>Mohit Agrawal*</strong>, Pragyan Mehrotra*, Rajesh Kumar, Rajiv Ratn Shah</div>
+          <div class="pub-note">* Equal contribution</div>
+          <div class="pub-venue">IEEE International Joint Conference on Biometrics (IJCB), 2021</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2106.07867" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a href="https://github.com/midas-research/IJCB2021GANTouch" target="_blank" rel="noopener noreferrer">Code</a>
+          </div>
+        </div>
+      </div>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Awards</heading>
-		<ul> <li>
-				  <strong>
-				  Recieved Orion Award for best performance at Qualcomm, 2023.</a></strong>
-				</li> </ul>
-                <ul> <li>
-				  <strong> <a href="https://ijcb2021.iapr-tc4.org/papers-invited-by-tbiom/">
-				  Top 10 best reviewed papers</a></strong>, &nbsp IEEE IJCB (2021).
-				</li> </ul>
-                <ul> <li>
-				  <strong> <a href="https://drive.google.com/file/d/1Lw4AJz8FGCuRf97QuPUGIjhsJ2QUjyGz/view?usp=sharing">
-				  Secured 8th position out of 87 teams in MLBuzz advance level (Hackathon organized by Qualcomm)</a></strong>,&nbsp Qualcomm (2021).
-				</li> </ul>
-		<ul> <li>
-				  <strong>
-				  Received admit from NUS Singapore for fully funded PhD</strong> (World's top 10 ranked university),&nbsp School of Computing, NUS (2020).
-				</li> </ul>
-                <ul> <li>
-				  <strong>
-				  MHRD scholarship to pursue master's in CSE based on GATE</strong>,&nbsp MHRD (2014).
-				</li> </ul>
-                <ul> <li>
-				  <strong>
-				  Department rank 1 out of 60 students in B.Tech.</strong>,&nbsp Government College of Engineering, Bhawanipatna (2013).
-				</li> </ul>
-                <ul> <li>
-				  <strong>Best paper award at NIT Rourkela</strong>,&nbsp NIT Rourkela (2012).
-				</li> </ul>				
-                <ul> <li>
-				  <strong> Vikas pratibha award</strong>,&nbsp National Talent Search Examination (2007).
-				</li> </ul>			  
- 
-            </td>
-          </tr>
-        </table>
-		
-		<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tr>
-            <td width="100%" valign="middle">
-              <heading>Invited Talks</heading>
-		<ul> <li>
-				<a href="https://delhi.nfsu.ac.in/">Technical talk on "Application of AI on Cyber Security", at NFSU, New Delhi.</a>.
-				</li> </ul>
-                <ul> <li>
-				<a href="https://vit.ac.in/">Technical talk on "Jargons of Machine Learning" at VIT Vellore organized by ECE department</a>.
-				</li> </ul>			  
-                <ul> <li>
-				  <a href="https://www.ina.gov.in/">Guest speaker at Indian Naval Academy, Ezhimala, Kannur, Kerala</a>.
-				</li> </ul>
-                <ul> <li>
-				  <a href="https://site.ieee.org/sb-nitt/">Technical talk on "The Alchemy of Data in AI" at NIT Trichy organized by IEEE-SB</a>.
+      <div class="pub-item">
+        <div class="pub-img"><img src="paper3.png" alt="BigMM 2020"></div>
+        <div class="pub-content">
+          <div class="pub-title">On the Inference of Soft Biometrics from Typing Patterns Collected in a Multi-device Environment</div>
+          <div class="pub-authors">Vishaal Udandarao*, <strong>Mohit Agrawal*</strong>, Rajesh Kumar, Rajiv Ratn Shah</div>
+          <div class="pub-note">* Equal contribution</div>
+          <div class="pub-venue">IEEE International Conference on Multimedia Big Data (BigMM), 2020</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2006.09501" target="_blank" rel="noopener noreferrer">Paper</a>
+            <a href="https://github.com/midas-research/privacy-leaks" target="_blank" rel="noopener noreferrer">Code</a>
+          </div>
+        </div>
+      </div>
 
-				</li> </ul>				
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+      <div class="pub-item">
+        <div class="pub-img"><img src="paper4.png" alt="BDA 2018"></div>
+        <div class="pub-content">
+          <div class="pub-title">PRISMO: Priority Based Spam Detection Using Multi Optimization</div>
+          <div class="pub-authors"><strong>Mohit Agrawal</strong>, R. Leela Velusamy</div>
+          <div class="pub-venue">Springer International Conference on Big Data Analytics (BDA), 2018</div>
+          <div class="pub-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-030-04780-1_27" target="_blank" rel="noopener noreferrer">Paper</a>
+          </div>
+        </div>
+      </div>
 
+      <div class="pub-item">
+        <div class="pub-img"><img src="paper5.png" alt="SCEECS 2016"></div>
+        <div class="pub-content">
+          <div class="pub-title">R-SALSA: A Spam Filtering Technique for Social Networking Sites</div>
+          <div class="pub-authors"><strong>Mohit Agrawal</strong>, R. Leela Velusamy</div>
+          <div class="pub-venue">IEEE Students' Conference on Electrical, Electronics and Computer Science (SCEECS), 2016</div>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/7509326" target="_blank" rel="noopener noreferrer">Paper</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-img"><img src="paper6.jpg" alt="FICTA 2015"></div>
+        <div class="pub-content">
+          <div class="pub-title">Unsupervised Spam Detection in Hyves Using SALSA</div>
+          <div class="pub-authors"><strong>Mohit Agrawal</strong>, R. Leela Velusamy</div>
+          <div class="pub-venue">Springer International Conference on Frontiers in Intelligent Computing: Theory and Applications (FICTA), 2015</div>
+          <div class="pub-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-81-322-2695-6_43" target="_blank" rel="noopener noreferrer">Paper</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Awards ── -->
+    <div class="section">
+      <div class="section-title">Awards &amp; Honours</div>
+      <ul class="award-list">
+        <li>Received <strong>Orion Award</strong> for best performance at Qualcomm (2023).</li>
+        <li><a href="https://ijcb2021.iapr-tc4.org/papers-invited-by-tbiom/" target="_blank" rel="noopener noreferrer"><strong>Top 10 best reviewed papers</strong></a> — IEEE IJCB (2021).</li>
+        <li><a href="https://drive.google.com/file/d/1Lw4AJz8FGCuRf97QuPUGIjhsJ2QUjyGz/view?usp=sharing" target="_blank" rel="noopener noreferrer"><strong>8th place out of 87 teams</strong> in MLBuzz Advanced Level Hackathon</a> — Qualcomm (2021).</li>
+        <li>Received <strong>admission offer from NUS Singapore for a fully funded PhD</strong> (World's top 10 university) — School of Computing, NUS (2020).</li>
+        <li><strong>MHRD Scholarship</strong> to pursue Master's in CSE based on GATE — MHRD (2014).</li>
+        <li><strong>Department Rank 1</strong> out of 60 students in B.Tech — Government College of Engineering, Bhawanipatna (2013).</li>
+        <li><strong>Best Paper Award</strong> — NIT Rourkela (2012).</li>
+        <li><strong>Vikas Pratibha Award</strong> — National Talent Search Examination (2007).</li>
+      </ul>
+    </div>
+
+    <!-- ── Invited Talks ── -->
+    <div class="section">
+      <div class="section-title">Invited Talks</div>
+      <ul class="talk-list">
+        <li>Technical talk on <em>"Application of AI on Cyber Security"</em> — <a href="https://delhi.nfsu.ac.in/" target="_blank" rel="noopener noreferrer">NFSU, New Delhi</a>.</li>
+        <li>Technical talk on <em>"Jargons of Machine Learning"</em> — <a href="https://vit.ac.in/" target="_blank" rel="noopener noreferrer">VIT Vellore</a>, organized by the ECE Department.</li>
+        <li>Guest Speaker — <a href="https://www.ina.gov.in/" target="_blank" rel="noopener noreferrer">Indian Naval Academy, Ezhimala, Kannur, Kerala</a>.</li>
+        <li>Technical talk on <em>"The Alchemy of Data in AI"</em> — <a href="https://site.ieee.org/sb-nitt/" target="_blank" rel="noopener noreferrer">NIT Trichy</a>, organized by IEEE Student Branch.</li>
+      </ul>
+    </div>
+
+    <!-- ── Footer ── -->
+    <div class="footer">
+      Design inspired by <a href="https://jonbarron.info" target="_blank" rel="noopener noreferrer">Jon Barron</a>.
+    </div>
+
+  </div>
 </body>
 
 </html>
