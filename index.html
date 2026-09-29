@@ -51,13 +51,28 @@
       flex-shrink: 0;
     }
 
-    .header-photo img {
-      width: 200px;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-      image-rendering: -webkit-optimize-contrast;
-    }
+    .header-photo img {                                                                                                                                                                                                                                                                                                         
+    width: 200px;                                                                                                                                                                                                                                                                                                             
+    height: 200px;                                                                                                                                                                                                                                                                                                            
+    object-fit: cover;                                                                                                                                                                                                                                                                                                        
+    border-radius: 50%;                                                                                                                                                                                                                                                                                                       
+    display: block;                                                                                                                                                                                                                                                                                                           
+    image-rendering: -webkit-optimize-contrast;                                                                                                                                                                                                                                                                               
+    border: 3px solid #e8e8e8;                                                                                                                                                                                                                                                                                                
+  }
+
+    .cover {                                                                                                                                                                                                                                                                                                                    
+    width: 100%;                                            
+    height: 220px;                                                                                                                                                                                                                                                                                                            
+    overflow: hidden;                                                                                                                                                                                                                                                                                                         
+  }                                                                                                                                                                                                                                                                                                                           
+  .cover img {                                                                                                                                                                                                                                                                                                                
+    width: 100%;                                                                                                                                                                                                                                                                                                              
+    height: 100%;                                                                                                                                                                                                                                                                                                             
+    object-fit: cover;                                                                                                                                                                                                                                                                                                        
+    object-position: center;                                                                                                                                                                                                                                                                                                  
+    display: block;                                                                                                                                                                                                                                                                                                           
+  } 
 
     .name {
       font-size: 32px;
@@ -402,6 +417,9 @@
 </head>
 
 <body>
+  <div class="cover">                                                                                                                                                                                                                                                                                                         
+    <img src="cover.jpg" alt="Cover">                       
+  </div>
   <div class="container">
 
     <!-- ── Header ── -->
