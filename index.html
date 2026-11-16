@@ -1,4 +1,325 @@
-```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Agrawal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ── */
+    body {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 15.5px;
+      line-height: 1.78;
+      color: #344054;
+      background: #f7f9fc;
+    }
+
+    a {
+      color: #176b87;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover, a:focus {
+      color: #0f4f68;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 920px;
+      margin: 36px auto;
+      padding: 48px 52px 56px;
+      background: #ffffff;
+      border: 1px solid #e8edf3;
+      border-radius: 14px;
+      box-shadow: 0 10px 35px rgba(16, 35, 54, 0.045);
+    }
+
+    /* ── Header ── */
+    .header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .header-bio { min-width: 0; }
+    .header-photo { justify-self: end; }
+    .header-photo img {
+      width: 184px; height: 184px; object-fit: cover;
+      border-radius: 50%; display: block; border: 3px solid #e8e8e8;
+    }
+
+    .name {
+      font-size: clamp(30px, 4vw, 38px);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      color: #142b3b;
+      margin: 0 0 9px;
+    }
+
+    .tagline {
+      margin: 0 0 22px;
+      color: #176b87;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+    }
+
+    .tagline span {
+      display: block;
+      margin-top: 5px;
+      color: #8492a0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+    }
+
+    /* ── Bio ── */
+    .bio {
+      font-size: 14.4px;
+      line-height: 1.68;
+    }
+
+    .bio p {
+      text-align: justify;
+      text-align-last: left;
+      text-justify: inter-word;
+      hyphens: auto;
+      margin-bottom: 13px;
+      color: #475467;
+    }
+
+    .bio p + p {
+      text-indent: 0;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    /* ── Social Links ── */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 0;
+      margin-top: 22px;
+      font-size: 13.5px;
+    }
+
+    .social-links a {
+      color: #176b87;
+      font-weight: 700;
+    }
+
+    .social-links span {
+      color: #999;
+      margin: 0 8px;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 42px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: #183447;
+      border-bottom: 1px solid #dce6ed;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 3px;
+      background: #2b8295;
+      border-radius: 3px;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+    }
+
+    .news-list li,
+    .award-list li,
+    .talk-list li {
+      line-height: 1.65;
+    }
+
+    .pub-item {
+      gap: 22px;
+    }
+
+    .pub-item:hover .pub-title {
+      color: #176b87;
+    }
+
+    .gallery-item {
+      box-shadow: 0 2px 8px rgba(16, 35, 54, 0.035);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      box-shadow: 0 8px 20px rgba(16, 35, 54, 0.10);
+      transform: translateY(-2px);
+    }
+
+    /* ── Experience timelines ── */
+    .timeline { display: grid; gap: 18px; }
+    .timeline-item { position: relative; padding: 0 0 18px 20px; border-left: 2px solid #dce9ee; margin-left: 5px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ""; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #2b8295; border: 2px solid #fff; box-shadow: 0 0 0 1px #2b8295; }
+    .timeline-role { color: #183447; font-size: 15px; font-weight: 700; line-height: 1.45; }
+    .timeline-org { color: #176b87; font-weight: 700; }
+    .timeline-meta { color: #8996a3; font-size: 12.5px; margin: 3px 0 7px; }
+    .timeline-item p {
+      color: #526171;
+      font-size: 14px;
+      line-height: 1.72;
+      text-align: justify;
+      text-align-last: left;
+      hyphens: auto;
+    }
+    .journey-note { margin-top: 12px; color: #687787; font-size: 13px; }
+
+    /* ── News ── */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #444;
+      display: flex;
+      gap: 12px;
+    }
+
+    .news-list li:last-child { border-bottom: none; }
+
+    .news-date {
+      color: #176b87;
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 60px;
+    }
+
+    /* ── Publications ── */
+    .pub-item {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-img {
+      flex-shrink: 0;
+      width: 140px;
+    }
+
+    .pub-img img {
+      width: 140px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e8e8e8;
+      display: block;
+    }
+
+    .pub-content { flex: 1; }
+
+    .pub-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #183447;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    .pub-authors {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .pub-venue {
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .pub-links a {
+      background: #eef6f8;
+      color: #17627b;
+      padding: 4px 11px;
+      border-radius: 5px;
+      font-weight: 700;
+      border: 1px solid #d6e8ed;
+      transition: background 0.2s;
+    }
+
+    .pub-links a:hover {
+      background: #176b87;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .pub-note {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    /* ── Awards ── */
+    .award-list {
+      list-style: none;
+    }
+
+    .award-list li {
+      padding: 8px 0 8px 16px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #444;
+      position: relative;
+    }
+
+    .award-list li:last-child { border-bottom: none; }
+
+    .award-list li::before {
+      content: "▸";
+      color: #2b8295;
+      position: absolute;
+      left: 0;
+      font-size: 11px;
+      top: 10px;
+    }
+
+    /* ── Talks ── */
     .talk-list {
       list-style: none;
     }
@@ -46,7 +367,9 @@
       transition: transform 0.3s ease;
     }
 
-    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
 
     .gallery-caption {
       padding: 10px 12px;
@@ -67,7 +390,7 @@
       margin-top: 2px;
     }
 
-    /* ── Lightbox ── */
+    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
@@ -98,7 +421,9 @@
       background: #000;
     }
 
-    .lightbox-info { padding: 16px 20px; }
+    .lightbox-info {
+      padding: 16px 20px;
+    }
 
     .lightbox-info .lb-title {
       font-size: 15px;
@@ -148,116 +473,77 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    /* ── Responsive ── */
+    /* ── Responsive: laptop, tablet and mobile ── */
     @media (max-width: 900px) {
-      .container {
-        max-width: 100%;
-        margin: 18px;
-        padding: 38px 34px 46px;
-      }
-
-      .header {
-        grid-template-columns: minmax(0, 1fr) 160px;
-        gap: 26px;
-      }
-
-      .header-photo img {
-        width: 156px;
-        height: 156px;
-      }
+      .container { max-width: 100%; margin: 18px; padding: 38px 34px 46px; }
+      .header { grid-template-columns: minmax(0, 1fr) 160px; gap: 26px; }
+      .header-photo img { width: 156px; height: 156px; }
     }
-
     @media (max-width: 640px) {
       body { font-size: 15px; line-height: 1.7; }
-
-      .container {
-        margin: 0;
-        padding: 28px 20px 38px;
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-      }
-
+      .container { margin: 0; padding: 28px 20px 38px; border: 0; border-radius: 0; box-shadow: none; }
       .header {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 92px;
+        grid-template-columns: minmax(0, 1fr) 104px;
+        grid-template-rows: auto;
         align-items: start;
-        gap: 14px;
+        gap: 12px;
         text-align: left;
-        margin-bottom: 34px;
+        margin-bottom: 30px;
       }
-
-      .header-bio { grid-column: 1; grid-row: 1; }
+      .header-bio { grid-column: 1; grid-row: 1; min-width: 0; }
       .header-photo {
         grid-column: 2;
         grid-row: 1;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         justify-self: end;
         align-self: start;
+        width: 100px;
+        min-height: 100px;
+        z-index: 2;
       }
-
       .header-photo img {
-        width: 88px;
-        height: 88px;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 96px;
+        height: 96px;
+        max-width: 100%;
+        object-fit: cover;
       }
-
-      .bio {
-        font-size: 13.8px;
-        line-height: 1.62;
-      }
-
+      .bio { font-size: 13.8px; line-height: 1.62; }
       .bio p {
+        margin-bottom: 10px;
         text-align: left;
-        margin-bottom: 12px;
+        text-align-last: left;
       }
-
       .timeline-item p { text-align: left; }
-
-      .name { font-size: 31px; }
-
-      .tagline {
-        font-size: 11px;
-        line-height: 1.6;
-        margin-bottom: 18px;
-      }
-
+      .name { font-size: 29px; }
+      .tagline { font-size: 11px; line-height: 1.6; margin-bottom: 18px; }
       .tagline span { font-size: 10px; }
       .section { margin-bottom: 34px; }
       .section-title { font-size: 17px; }
       .pub-item { flex-direction: column; gap: 12px; }
       .pub-img { width: 100%; }
-
-      .pub-img img {
-        width: 100%;
-        max-width: 240px;
-        height: auto;
-      }
-
+      .pub-img img { width: 100%; max-width: 240px; height: auto; }
       .news-list li { gap: 8px; }
       .news-date { min-width: 58px; }
       .social-links { gap: 8px 0; }
     }
-
     @media (max-width: 380px) {
-      .container {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .header {
-        grid-template-columns: minmax(0, 1fr) 84px;
-        gap: 10px;
-      }
-
+      .container { padding-left: 16px; padding-right: 16px; }
+      .header { grid-template-columns: minmax(0, 1fr) 88px; gap: 10px; }
       .header-photo { width: 84px; min-height: 84px; }
       .header-photo img { width: 80px; height: 80px; }
-      .name { font-size: 28px; }
+      .name { font-size: 26px; }
       .news-list li { display: block; }
       .news-date { display: block; margin-bottom: 2px; }
     }
 
   </style>
 </head>
-
 <body>
   <div class="container">
 
@@ -265,10 +551,7 @@
     <div class="header">
       <div class="header-bio">
         <div class="name">Mohit Agrawal</div>
-        <div class="tagline">
-          Data &amp; AI for Social Impact
-          <span>Healthcare&nbsp;&bull;&nbsp; Education&nbsp;&bull;&nbsp; AI Research</span>
-        </div>
+        <div class="tagline">Data &amp; AI for Social Impact <span>Healthcare&nbsp;&bull;&nbsp; Education&nbsp;&bull;&nbsp; AI Research</span></div>
 
         <div class="bio">
           <p>
@@ -279,7 +562,6 @@
             <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.
             My industry work and academic research are closely connected, with each informing and strengthening the other.
           </p>
-
           <p>
             I am an AI generalist interested in applying <strong>Data and Artificial Intelligence to meaningful
             societal challenges</strong>. My interests span domains such as healthcare and education, where
@@ -287,7 +569,6 @@
             the quality of human experiences. I believe the value of AI lies not only in advancing technology,
             but also in applying it responsibly to problems that matter.
           </p>
-
           <p>
             In healthcare, my work focuses on exploring how multimodal AI can help make complex oncology data
             more useful and actionable. In parallel, my PhD research explores the intersection of
@@ -295,7 +576,6 @@
             that can listen, speak, and meaningfully evaluate human learning. This work includes Automatic Speech
             Recognition (ASR), Text-to-Speech (TTS), and the evaluation of multimodal AI systems.
           </p>
-
           <p>
             Across these domains, I am particularly interested in making AI more accessible, efficient, and
             inclusive. I explore Small Language Models (SLMs), efficient AI architectures, and on-device
@@ -304,7 +584,6 @@
             technology and limited or no internet connectivity should not become barriers to quality healthcare
             or education.
           </p>
-
           <p>
             Earlier in my research journey, I also worked on <strong>privacy and security</strong>, with contributions
             in <strong>behavioral biometrics</strong> and the development of techniques for detecting spam and
@@ -312,7 +591,6 @@
             intelligent systems that are not only useful and efficient, but also secure, trustworthy, and
             respectful of users.
           </p>
-
           <p>
             My engineering and research journey has taken me through
             <a href="https://www.qualcomm.com/" target="_blank" rel="noopener noreferrer">Qualcomm AI Software</a>,
@@ -328,7 +606,6 @@
             motivated me to pursue doctoral studies at IIT Kharagpur. These experiences shaped my approach to building AI that moves beyond research prototypes into
             practical, scalable, and resource-efficient systems.
           </p>
-
           <p>
             I hold a Master's degree in Computer Science and Engineering from
             <a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">National Institute of Technology Tiruchirappalli</a>
@@ -340,7 +617,6 @@
             <a href="https://gcekbpatna.ac.in/" target="_blank" rel="noopener noreferrer">Government College of Engineering, Bhawanipatna</a>
             (2013).
           </p>
-
           <p>
             Beyond technology and research, I enjoy teaching, writing, and travelling. These interests keep me
             curious, broaden my perspective, and reinforce my belief that technology should ultimately serve
@@ -364,423 +640,17 @@
         <img src="pic_linkedin.png" alt="Mohit Agrawal">
       </div>
     </div>
-    .talk-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
-.talk-list li {
-  position: relative;
-  padding-left: 18px;
-  margin-bottom: 10px;
-}
-
-.talk-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #64748b;
-}
-
-.highlight-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.highlight-grid img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform .2s ease;
-}
-
-.highlight-grid img:hover {
-  transform: scale(1.02);
-}
-
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(15, 23, 42, .92);
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.lightbox img {
-  max-width: 95%;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 28px;
-  color: white;
-  font-size: 34px;
-  cursor: pointer;
-}
-
-footer {
-  margin-top: 44px;
-  padding-top: 18px;
-  border-top: 1px solid #e5eaf0;
-  color: #98a2b3;
-  font-size: 12px;
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .container {
-    margin: 20px auto;
-    padding: 36px 30px 44px;
-  }
-
-  .header {
-    gap: 24px;
-    grid-template-columns: minmax(0, 1fr) 160px;
-  }
-
-  .header-photo img {
-    width: 154px;
-    height: 154px;
-  }
-
-  .highlight-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .container {
-    margin: 0;
-    padding: 28px 20px 38px;
-    border-radius: 0;
-  }
-
-  .header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 92px;
-    gap: 12px;
-    align-items: start;
-  }
-
-  .header-content {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .header-photo {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-  }
-
-  .header-photo img {
-    width: 88px;
-    height: 88px;
-  }
-
-  .bio {
-    font-size: 13.8px;
-    line-height: 1.62;
-  }
-
-  .bio p,
-  .timeline-description,
-  .publication-description {
-    text-align: left;
-    hyphens: none;
-  }
-
-  .highlight-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-}
-
-@media (max-width: 380px) {
-  .header {
-    grid-template-columns: minmax(0, 1fr) 84px;
-  }
-
-  .header-photo img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-</style>
-</head>
-
-<body>
-<div class="container">
-
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <h1>Mohit Agrawal</h1>
-      <p class="subtitle">Data &amp; AI for Social Impact</p>
-
-      <div class="bio">
-        <p>
-          I am an AI researcher and technology leader interested in applying
-          Data and AI to address meaningful societal challenges, particularly
-          in healthcare and education. I currently serve as Head of AI at
-          i3 Digital Health, where I work on AI-driven solutions in oncology.
-        </p>
-
-        <p>
-          I am also pursuing my PhD at IIT Kharagpur under the guidance of
-          Dr. Pawan Goyal. My research interests include multimodal AI,
-          speech technologies, and AI evaluation, with a focus on building
-          systems that are useful, reliable, and accessible.
-        </p>
-
-        <p>
-          My research journey began during my Master's at NIT Tiruchirappalli,
-          where I worked on spam detection in social networking sites.
-          Later, I worked as a Research Assistant with
-          <a href="https://www.midaslab.in/" target="_blank" rel="noopener">
-            Prof. Rajiv Ratn Shah
-          </a>
-          at IIIT Delhi, exploring behavioral biometrics and fairness.
-          After returning to India from Singapore during the COVID-19
-          disruption, this experience renewed my interest in research and
-          motivated me to pursue a PhD.
-        </p>
-
-        <p>
-          Before focusing more deeply on research, I gained industry
-          experience with organizations including Qualcomm, Teradata, IBM,
-          and Blaize. These experiences shaped my interest in bridging
-          practical engineering with impactful AI research.
-        </p>
-      </div>
-
-      <div class="social-links">
-        <a href="mailto:YOUR_EMAIL">Email</a>
-        <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener">GitHub</a>
-        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-
-    <div class="header-photo">
-      <img src="pic_linkedin.png" alt="Mohit Agrawal">
-    </div>
-  </header>
-
-  <!-- Professional Experience -->
-  <section>
-    <h2>Professional Experience</h2>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-title">Head of AI — i3 Digital Health</div>
-        <div class="timeline-meta">Healthcare AI · Oncology</div>
-        <p class="timeline-description">
-          Leading AI initiatives focused on developing intelligent solutions
-          for oncology and healthcare applications.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-title">Qualcomm</div>
-        <p class="timeline-description">
-          Worked on AI and technology-related engineering initiatives.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-title">Teradata</div>
-        <p class="timeline-description">
-          Worked on data and technology solutions in an industry setting.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-title">IBM</div>
-        <p class="timeline-description">
-          Contributed to software and technology projects.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-title">Blaize</div>
-        <p class="timeline-description">
-          Worked in the AI and computing technology ecosystem.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Research and Academic Experience -->
-  <section>
-    <h2>Research &amp; Academic Experience</h2>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-title">PhD Researcher — IIT Kharagpur</div>
-        <div class="timeline-meta">Under the guidance of Dr. Pawan Goyal</div>
-        <p class="timeline-description">
-          Research interests include multimodal AI, speech technologies,
-          automatic speech recognition, text-to-speech, and AI evaluation.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-title">Research Assistant — IIIT Delhi</div>
-        <div class="timeline-meta">
-          MIDAS Research Group ·
-          <a href="https://www.midaslab.in/" target="_blank" rel="noopener">MIDAS Lab</a>
-        </div>
-        <p class="timeline-description">
-          Worked with Prof. Rajiv Ratn Shah on research problems involving
-          behavioral biometrics and fairness.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-title">Master's — NIT Tiruchirappalli</div>
-        <p class="timeline-description">
-          Worked on spam detection in social networking sites, developing
-          an early interest in machine learning and research.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- News -->
-  <section>
-    <h2>News</h2>
-    <ul class="news-list">
-      <li>
-        <span class="news-date">Nov 2026</span>
-        Presented a poster at IndoML.
-      </li>
-      <li>
-        <span class="news-date">Dec 2025</span>
-        Received a US patent.
-      </li>
-      <li>
-        <span class="news-date">Dec 2024</span>
-        Received a white paper award.
-      </li>
-    </ul>
-  </section>
-
-  <!-- Publications -->
-  <section>
-    <h2>Selected Publications</h2>
-    <div class="publication-list">
-
-      <div class="publication-item">
-        <img src="paper1.png" alt="Publication thumbnail">
-        <div>
-          <h3>Publication 1</h3>
-          <p class="publication-description">
-            Research publication. Replace this placeholder with the exact
-            title, authors, venue, and publication link.
-          </p>
-        </div>
-      </div>
-
-      <div class="publication-item">
-        <img src="paper2.png" alt="Publication thumbnail">
-        <div>
-          <h3>Publication 2</h3>
-          <p class="publication-description">
-            Research publication. Replace this placeholder with the exact
-            title, authors, venue, and publication link.
-          </p>
-        </div>
-      </div>
-
-      <div class="publication-item">
-        <img src="paper3.png" alt="Publication thumbnail">
-        <div>
-          <h3>Publication 3</h3>
-          <p class="publication-description">
-            Research publication. Replace this placeholder with the exact
-            title, authors, venue, and publication link.
-          </p>
-        </div>
-      </div>
-
-      <div class="publication-item">
-        <img src="paper4.png" alt="Publication thumbnail">
-        <div>
-          <h3>Publication 4</h3>
-          <p class="publication-description">
-            Research publication. Replace this placeholder with the exact
-            title, authors, venue, and publication link.
-          </p>
-        </div>
-      </div>
-
-      <div class="publication-item">
-        <img src="paper5.jpg" alt="Publication thumbnail">
-        <div>
-          <h3>Publication 5</h3>
-          <p class="publication-description">
-            Research publication. Replace this placeholder with the exact
-            title, authors, venue, and publication link.
-          </p>
-        </div>
-      </div>
-
-      <div class="publication-item">
-        <img src="paper6.jpg" alt="Publication thumbnail">
-        <div>
-          <h3>Publication 6</h3>
-          <p class="publication-description">
-            Research publication. Replace this placeholder with the exact
-            title, authors, venue, and publication link.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-      <!-- ── Professional Experience ── -->
+    <!-- ── Professional Experience ── -->
     <div class="section">
       <div class="section-title">Professional Experience</div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-role">Head of AI</div>
-          <div class="timeline-org">
-            <a href="https://www.i3digitalhealth.com/home" target="_blank" rel="noopener noreferrer">i3 Digital Health</a>
-          </div>
+          <div class="timeline-org"><a href="https://www.i3digitalhealth.com/home" target="_blank" rel="noopener noreferrer">i3 Digital Health</a></div>
           <div class="timeline-meta">Current</div>
           <p>Leading AI efforts focused on developing practical, data-driven solutions in healthcare, with an emphasis on oncology.</p>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-role">Earlier Industry Experience</div>
           <div class="timeline-org">Qualcomm AI Software · Teradata R&amp;D Labs · IBM ISDL · Blaize</div>
@@ -795,52 +665,24 @@ footer {
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-role">PhD Researcher</div>
-          <div class="timeline-org">
-            <a href="https://www.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Kharagpur</a>
-          </div>
+          <div class="timeline-org"><a href="https://www.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Kharagpur</a></div>
           <div class="timeline-meta">Doctoral research · Current</div>
-          <p>
-            Research at the intersection of Multimodal AI, Speech Technologies and Education,
-            including speech recognition, text-to-speech, and evaluation of multimodal AI systems.
-            Working under the supervision of
-            <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.
-          </p>
+          <p>Research at the intersection of Multimodal AI, Speech Technologies and Education, including speech recognition, text-to-speech, and evaluation of multimodal AI systems. Working under the supervision of <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.</p>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-role">Research Assistant</div>
-          <div class="timeline-org">
-            <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">Indraprastha Institute of Information Technology Delhi (IIIT-Delhi)</a>
-            ·
-            <a href="https://www.midaslab.in/" target="_blank" rel="noopener noreferrer">MIDAS Research Group</a>
-          </div>
+          <div class="timeline-org"><a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">Indraprastha Institute of Information Technology Delhi (IIIT-Delhi)</a> · <a href="https://www.midaslab.in/" target="_blank" rel="noopener noreferrer">MIDAS Research Group</a></div>
           <div class="timeline-meta">Worked with Prof. Rajiv Ratn Shah</div>
-          <p>
-            Worked on behavioral biometrics, privacy, and fairness. This experience renewed and deepened
-            my interest in research, and became an important step toward pursuing doctoral studies.
-          </p>
+          <p>Worked on behavioral biometrics, privacy, and fairness. This experience renewed and deepened my interest in research, and became an important step toward pursuing doctoral studies.</p>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-role">Master's Research</div>
-          <div class="timeline-org">
-            <a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">National Institute of Technology Tiruchirappalli</a>
-          </div>
+          <div class="timeline-org"><a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">National Institute of Technology Tiruchirappalli</a></div>
           <div class="timeline-meta">Master's in Computer Science and Engineering</div>
-          <p>
-            Worked on spam detection in social networking sites, focusing on unsupervised learning
-            and dimensionality reduction under the guidance of
-            <a href="https://www.nitt.edu/home/academics/departments/cse/faculty/leela/" target="_blank" rel="noopener noreferrer">Dr. R. Leela Velusamy</a>.
-            This work led to research on social-network spam detection.
-          </p>
+          <p>Worked on spam detection in social networking sites, focusing on unsupervised learning and dimensionality reduction under the guidance of <a href="https://www.nitt.edu/home/academics/departments/cse/faculty/leela/" target="_blank" rel="noopener noreferrer">Dr. R. Leela Velusamy</a>. This work led to research on social-network spam detection.</p>
         </div>
       </div>
-
-      <p class="journey-note">
-        My research path has evolved from detecting spam and harmful activity in online social networks,
-        to studying behavioral biometrics, privacy and fairness, and now to multimodal AI for education.
-        The common thread is using intelligent systems to address meaningful human and societal problems.
-      </p>
+      <p class="journey-note">My research path has evolved from detecting spam and harmful activity in online social networks, to studying behavioral biometrics, privacy and fairness, and now to multimodal AI for education. The common thread is using intelligent systems to address meaningful human and societal problems.</p>
     </div>
 
     <!-- ── News ── -->
@@ -869,10 +711,7 @@ footer {
       <div class="pub-item">
         <div class="pub-img"><img src="paper1.png" alt="GANTouch"></div>
         <div class="pub-content">
-          <div class="pub-title">
-            GANTouch: An Attack-Resilient Framework for Touch-based Continuous Authentication System
-            <span style="color:#888; font-size:13px; font-weight:400;">(Impact Factor: 5)</span>
-          </div>
+          <div class="pub-title">GANTouch: An Attack-Resilient Framework for Touch-based Continuous Authentication System <span style="color:#888; font-size:13px; font-weight:400;">(Impact Factor: 5)</span></div>
           <div class="pub-authors"><strong>Mohit Agrawal</strong>, Pragyan Mehrotra, Rajesh Kumar, Rajiv Ratn Shah</div>
           <div class="pub-venue">IEEE Transactions on Biometrics, Identity and Behavior (T-BIOM), 2022</div>
           <div class="pub-links">
@@ -885,9 +724,7 @@ footer {
       <div class="pub-item">
         <div class="pub-img"><img src="paper2.png" alt="IJCB 2021"></div>
         <div class="pub-content">
-          <div class="pub-title">
-            Defending Touch-based Continuous Authentication Systems from Active Adversaries Using Generative Adversarial Networks
-          </div>
+          <div class="pub-title">Defending Touch-based Continuous Authentication Systems from Active Adversaries Using Generative Adversarial Networks</div>
           <div class="pub-authors"><strong>Mohit Agrawal*</strong>, Pragyan Mehrotra*, Rajesh Kumar, Rajiv Ratn Shah</div>
           <div class="pub-note">* Equal contribution</div>
           <div class="pub-venue">IEEE International Joint Conference on Biometrics (IJCB), 2021</div>
@@ -901,9 +738,7 @@ footer {
       <div class="pub-item">
         <div class="pub-img"><img src="paper3.png" alt="BigMM 2020"></div>
         <div class="pub-content">
-          <div class="pub-title">
-            On the Inference of Soft Biometrics from Typing Patterns Collected in a Multi-device Environment
-          </div>
+          <div class="pub-title">On the Inference of Soft Biometrics from Typing Patterns Collected in a Multi-device Environment</div>
           <div class="pub-authors">Vishaal Udandarao*, <strong>Mohit Agrawal*</strong>, Rajesh Kumar, Rajiv Ratn Shah</div>
           <div class="pub-note">* Equal contribution</div>
           <div class="pub-venue">IEEE International Conference on Multimedia Big Data (BigMM), 2020</div>
@@ -949,16 +784,16 @@ footer {
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ── Awards ── -->
+    </div>
+        <!-- ── Awards ── -->
     <div class="section">
       <div class="section-title">Awards &amp; Honours</div>
       <ul class="award-list">
         <li>Received <strong>Orion Award</strong> for best performance at Qualcomm (2023).</li>
         <li><a href="https://ijcb2021.iapr-tc4.org/papers-invited-by-tbiom/" target="_blank" rel="noopener noreferrer"><strong>Top 10 best reviewed papers</strong></a> — IEEE IJCB (2021).</li>
         <li><a href="https://drive.google.com/file/d/1Lw4AJz8FGCuRf97QuPUGIjhsJ2QUjyGz/view?usp=sharing" target="_blank" rel="noopener noreferrer"><strong>8th place out of 87 teams</strong> in MLBuzz Advanced Level Hackathon</a> — Qualcomm (2021).</li>
-        <li>Received <strong>admission offer from NUS Singapore for a fully funded PhD</strong> — School of Computing, NUS (2020).</li>
+        <li>Received <strong>admission offer from NUS Singapore for a fully funded PhD</strong> (World's top 10 university) — School of Computing, NUS (2020).</li>
         <li><strong>MHRD Scholarship</strong> to pursue Master's in CSE based on GATE — MHRD (2014).</li>
         <li><strong>Department Rank 1</strong> out of 60 students in B.Tech — Government College of Engineering, Bhawanipatna (2013).</li>
         <li><strong>Best Paper Award</strong> — NIT Rourkela (2012).</li>
@@ -977,7 +812,7 @@ footer {
       </ul>
     </div>
 
-    <!-- ── Professional Highlights ── -->
+    <!-- ── Highlights ── -->
     <div class="section">
       <div class="section-title">Professional Highlights</div>
       <div class="gallery-grid">
@@ -1073,7 +908,7 @@ footer {
       </div>
     </div>
 
-    <!-- ── Lightbox ── -->
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
       <button class="lightbox-close" onclick="closeLightbox()">✕</button>
       <div class="lightbox-inner">
@@ -1094,7 +929,7 @@ footer {
       function openLightbox(src, title, meta) {
         document.getElementById('lb-img').src = src;
         document.getElementById('lb-title').textContent = title;
-        document.getElementById('lb-meta').textContent = meta || '';
+        document.getElementById('lb-meta').textContent = meta;
         document.getElementById('lightbox').classList.add('active');
         document.body.style.overflow = 'hidden';
       }
