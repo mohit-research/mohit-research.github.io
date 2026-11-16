@@ -541,89 +541,166 @@
       .news-list li { display: block; }
       .news-date { display: block; margin-bottom: 2px; }
     }
+    
+/* ── Navigation ── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 13px 12px;
+  margin: -20px 0 36px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e8edf3;
+  backdrop-filter: blur(10px);
+}
+
+.site-nav a {
+  color: #526171;
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.site-nav a:hover {
+  color: #176b87;
+  text-decoration: none;
+}
+
+.section[id],
+.header[id] {
+  scroll-margin-top: 85px;
+}
+
+/* ── Research interest tags ── */
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.research-tags span {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #eef6f8;
+  border: 1px solid #d9e9ed;
+  color: #17627b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ── Mobile navigation ── */
+@media (max-width: 640px) {
+  .site-nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 20px;
+    margin: -10px -20px 28px;
+    padding: 12px 20px;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    font-size: 12px;
+  }
+}
+
 
   </style>
 </head>
 <body>
   <div class="container">
+    
+<!-- ── Sticky Navigation ── -->
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#research">Research</a>
+  <a href="#publications">Publications</a>
+  <a href="#recognition">Recognition</a>
+  <a href="#talks">Talks</a>
+  <a href="#gallery">Gallery</a>
+</nav>
+
 
     <!-- ── Header ── -->
-    <div class="header">
+    <div class="header" id="about">
       <div class="header-bio">
         <div class="name">Mohit Agrawal</div>
         <div class="tagline">Data &amp; AI for Social Impact <span>Healthcare&nbsp;&bull;&nbsp; Education&nbsp;&bull;&nbsp; AI Research</span></div>
 
-        <div class="bio">
-          <p>
-            I am <strong>Mohit Agrawal</strong>, Head of AI at
-            <a href="https://www.i3digitalhealth.com/home" target="_blank" rel="noopener noreferrer">i3 Digital Health</a>,
-            where I work on designing and developing AI-driven solutions for healthcare, with a focus on oncology.
-            Alongside my industry role, I am pursuing a PhD at IIT Kharagpur under the supervision of
-            <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.
-            My industry work and academic research are closely connected, with each informing and strengthening the other.
-          </p>
-          <p>
-            I am an AI generalist interested in applying <strong>Data and Artificial Intelligence to meaningful
-            societal challenges</strong>. My interests span domains such as healthcare and education, where
-            thoughtful applications of data and intelligent systems can improve access, decision-making, and
-            the quality of human experiences. I believe the value of AI lies not only in advancing technology,
-            but also in applying it responsibly to problems that matter.
-          </p>
-          <p>
-            In healthcare, my work focuses on exploring how multimodal AI can help make complex oncology data
-            more useful and actionable. In parallel, my PhD research explores the intersection of
-            <strong>Multimodal AI, Speech Technologies, and Education</strong> — developing intelligent systems
-            that can listen, speak, and meaningfully evaluate human learning. This work includes Automatic Speech
-            Recognition (ASR), Text-to-Speech (TTS), and the evaluation of multimodal AI systems.
-          </p>
-          <p>
-            Across these domains, I am particularly interested in making AI more accessible, efficient, and
-            inclusive. I explore Small Language Models (SLMs), efficient AI architectures, and on-device
-            intelligence to bring capable AI systems beyond expensive cloud infrastructure and directly to
-            edge devices. This is especially important in resource-constrained settings, where reliable
-            technology and limited or no internet connectivity should not become barriers to quality healthcare
-            or education.
-          </p>
-          <p>
-            Earlier in my research journey, I also worked on <strong>privacy and security</strong>, with contributions
-            in <strong>behavioral biometrics</strong> and the development of techniques for detecting spam and
-            harmful activity in social networks. These experiences strengthened my interest in building
-            intelligent systems that are not only useful and efficient, but also secure, trustworthy, and
-            respectful of users.
-          </p>
-          <p>
-            My engineering and research journey has taken me through
-            <a href="https://www.qualcomm.com/" target="_blank" rel="noopener noreferrer">Qualcomm AI Software</a>,
-            <a href="https://www.teradata.com/" target="_blank" rel="noopener noreferrer">Teradata R&amp;D Labs</a>,
-            <a href="https://www.ibm.com/careers/blog/what-is-the-india-systems-development-lab" target="_blank" rel="noopener noreferrer">IBM ISDL</a>,
-            <a href="https://www.blaize.com/" target="_blank" rel="noopener noreferrer">Blaize</a>, and
-            <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">IIIT Delhi</a>, where I
-            worked as a Research Assistant under
-            <a href="https://www.midaslab.in/" target="_blank" rel="noopener noreferrer">Prof. Rajiv Ratn Shah</a>,
-            contributing to research in behavioral biometrics, privacy, and fairness. After beginning doctoral
-            studies at the National University of Singapore, the disruption caused by the COVID-19 pandemic brought
-            me back to India. My subsequent research experience at IIIT Delhi rekindled my passion for research and
-            motivated me to pursue doctoral studies at IIT Kharagpur. These experiences shaped my approach to building AI that moves beyond research prototypes into
-            practical, scalable, and resource-efficient systems.
-          </p>
-          <p>
-            I hold a Master's degree in Computer Science and Engineering from
-            <a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">National Institute of Technology Tiruchirappalli</a>
-            (2016), where I worked under the guidance of
-            <a href="https://www.nitt.edu/home/academics/departments/cse/faculty/leela/" target="_blank" rel="noopener noreferrer">Dr. R. Leela Velusamy</a>.
-            My thesis was titled <em>"Spam Detection in Social Networking Sites Using Unsupervised Learning
-            and Dimensionality Reduction."</em> I completed my Bachelor's degree in Computer Science and
-            Engineering at
-            <a href="https://gcekbpatna.ac.in/" target="_blank" rel="noopener noreferrer">Government College of Engineering, Bhawanipatna</a>
-            (2013).
-          </p>
-          <p>
-            Beyond technology and research, I enjoy teaching, writing, and travelling. These interests keep me
-            curious, broaden my perspective, and reinforce my belief that technology should ultimately serve
-            people. I am always keen to connect with those using Data and AI to address real-world challenges,
-            particularly across healthcare, education, and other areas of social impact.
-          </p>
-        </div>
+        
+<div class="bio">
+  <p>
+    I am <strong>Mohit Agrawal</strong>, Head of AI at
+    <a href="https://www.i3digitalhealth.com/home" target="_blank" rel="noopener noreferrer">i3 Digital Health</a>,
+    where I work on developing AI-driven solutions for healthcare, with a focus on oncology.
+    I am also pursuing my PhD at
+    <a href="https://www.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer">IIT Kharagpur</a>
+    under the supervision of
+    <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer">Dr. Pawan Goyal</a>.
+  </p>
+
+  <p>
+    I am an AI generalist passionate about applying
+    <strong>Data and Artificial Intelligence to meaningful societal challenges</strong>,
+    particularly in healthcare and education. I believe the real value of AI
+    lies not just in advancing technology, but in making it useful, accessible,
+    responsible, and impactful.
+  </p>
+
+  <p>
+    My current research interests span
+    <strong>Multimodal AI, Speech Technologies, and Education</strong>.
+    I work on problems involving Automatic Speech Recognition (ASR),
+    Text-to-Speech (TTS), and multimodal AI evaluation. I am also interested
+    in Small Language Models, efficient AI architectures, and on-device
+    intelligence that can bring capable AI systems to resource-constrained
+    environments.
+  </p>
+
+  <p>
+    My research journey began during my Master's at
+    <a href="https://www.nitt.edu/" target="_blank" rel="noopener noreferrer">NIT Tiruchirappalli</a>,
+    where I worked on spam detection in social networking sites.
+    Later, as a Research Assistant at
+    <a href="https://www.iiitd.ac.in/" target="_blank" rel="noopener noreferrer">IIIT Delhi</a>,
+    I worked with
+    <a href="https://www.midaslab.in/" target="_blank" rel="noopener noreferrer">Prof. Rajiv Ratn Shah</a>
+    on behavioral biometrics, privacy, and fairness. After returning to India
+    from doctoral studies at the National University of Singapore during the
+    COVID-19 disruption, this experience rekindled my passion for research
+    and motivated me to pursue my PhD at IIT Kharagpur.
+  </p>
+
+  <p>
+    Before my current role, I gained industry experience across
+    <a href="https://www.qualcomm.com/" target="_blank" rel="noopener noreferrer">Qualcomm</a>,
+    <a href="https://www.teradata.com/" target="_blank" rel="noopener noreferrer">Teradata</a>,
+    <a href="https://www.ibm.com/" target="_blank" rel="noopener noreferrer">IBM</a>,
+    and <a href="https://www.blaize.com/" target="_blank" rel="noopener noreferrer">Blaize</a>.
+    These experiences shaped my interest in bridging research with practical,
+    scalable engineering. Beyond work, I enjoy teaching, writing, and travelling.
+  </p>
+</div>
+
 
         <div class="social-links">
           <a href="mailto:mohit.nittrichy@gmail.com">Email</a>
@@ -642,7 +719,7 @@
     </div>
 
     <!-- ── Professional Experience ── -->
-    <div class="section">
+    <div class="section" id="experience">
       <div class="section-title">Professional Experience</div>
       <div class="timeline">
         <div class="timeline-item">
@@ -660,7 +737,7 @@
     </div>
 
     <!-- ── Research & Academic Experience ── -->
-    <div class="section">
+    <div class="section" id="research">
       <div class="section-title">Research &amp; Academic Experience</div>
       <div class="timeline">
         <div class="timeline-item">
@@ -683,6 +760,24 @@
         </div>
       </div>
       <p class="journey-note">My research path has evolved from detecting spam and harmful activity in online social networks, to studying behavioral biometrics, privacy and fairness, and now to multimodal AI for education. The common thread is using intelligent systems to address meaningful human and societal problems.</p>
+    
+<div style="margin-top: 22px;">
+  <div style="font-size: 15px; font-weight: 700; color: #183447; margin-bottom: 10px;">
+    Research Interests
+  </div>
+
+  <div class="research-tags">
+    <span>Multimodal AI</span>
+    <span>Speech Technologies</span>
+    <span>Healthcare AI</span>
+    <span>AI for Education</span>
+    <span>ASR &amp; TTS</span>
+    <span>Small Language Models</span>
+    <span>Efficient AI</span>
+    <span>Privacy &amp; Fairness</span>
+  </div>
+</div>
+
     </div>
 
     <!-- ── News ── -->
@@ -695,7 +790,7 @@
         </li>
         <li>
           <span class="news-date">Dec 2025</span>
-          <span>US Patent accepted for filing in the area of Autonomous Driving.</span>
+          <span>US Patent filed in the area of Autonomous Driving.</span>
         </li>
         <li>
           <span class="news-date">Dec 2024</span>
@@ -705,7 +800,7 @@
     </div>
 
     <!-- ── Publications ── -->
-    <div class="section">
+    <div class="section" id="publications">
       <div class="section-title">Publications</div>
 
       <div class="pub-item">
@@ -787,7 +882,7 @@
 
     </div>
         <!-- ── Awards ── -->
-    <div class="section">
+    <div class="section" id="recognition">
       <div class="section-title">Awards &amp; Honours</div>
       <ul class="award-list">
         <li>Received <strong>Orion Award</strong> for best performance at Qualcomm (2023).</li>
@@ -802,7 +897,7 @@
     </div>
 
     <!-- ── Invited Talks ── -->
-    <div class="section">
+    <div class="section" id="talks">
       <div class="section-title">Invited Talks</div>
       <ul class="talk-list">
         <li>Technical talk on <em>"Application of AI on Cyber Security"</em> — <a href="https://delhi.nfsu.ac.in/" target="_blank" rel="noopener noreferrer">NFSU, New Delhi</a>.</li>
@@ -813,7 +908,7 @@
     </div>
 
     <!-- ── Highlights ── -->
-    <div class="section">
+    <div class="section" id="gallery">
       <div class="section-title">Professional Highlights</div>
       <div class="gallery-grid">
 
